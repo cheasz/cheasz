@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200"
+     height="420"
+     viewBox="0 0 1200 420"
+     role="img"
+     aria-labelledby="title desc">
+
+  <title id="title">Keep Smiling — Cheasz</title>
+  <desc id="desc">Dark crimson animated glitch banner with a sinister smile.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050204"/>
+      <stop offset="50%" stop-color="#0c0206"/>
+      <stop offset="100%" stop-color="#180309"/>
+    </linearGradient>
+
+    <radialGradient id="core" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#5a071d" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#23030c" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#050204" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="noise" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="13" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="mono"/>
+      <feComponentTransfer in="mono" result="alphaNoise">
+        <feFuncA type="table" tableValues="0 0.08"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="alphaNoise" mode="screen"/>
+    </filter>
+
+    <clipPath id="sliceTop">
+      <rect x="0" y="0" width="1200" height="155"/>
+    </clipPath>
+
+    <clipPath id="sliceMid">
+      <rect x="0" y="155" width="1200" height="90"/>
+    </clipPath>
+
+    <clipPath id="sliceBot">
+      <rect x="0" y="245" width="1200" height="175"/>
+    </clipPath>
+
+    <pattern id="scanlines" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="3" fill="#000" opacity="0.00"/>
+      <rect y="3" width="6" height="3" fill="#25030d" opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="420" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="420" rx="26" fill="url(#core)"/>
+
+  <!-- subtle frame -->
+  <rect x="10" y="10" width="1180" height="400" rx="20"
+        fill="none" stroke="#5b0a20" stroke-opacity="0.48" stroke-width="2"/>
+  <rect x="18" y="18" width="1164" height="384" rx="16"
+        fill="none" stroke="#2e0611" stroke-opacity="0.7" stroke-dasharray="14 18"/>
+
+  <!-- ambient lines -->
+  <g opacity="0.35">
+    <path d="M70 88 H260 L295 54 H420" fill="none" stroke="#6d0b25" stroke-width="2"/>
+    <path d="M1130 332 H940 L905 366 H780" fill="none" stroke="#6d0b25" stroke-width="2"/>
+    <circle cx="66" cy="88" r="4" fill="#9d1235"/>
+    <circle cx="1134" cy="332" r="4" fill="#9d1235"/>
+  </g>
+
+  <!-- scan beam -->
+  <rect x="0" y="-30" width="1200" height="34" fill="#8a0b2d" opacity="0.10">
+    <animate attributeName="y" values="-30;420;-30" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.18;0" dur="6s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Smile -->
+  <g transform="translate(600 138)" filter="url(#softGlow)">
+    <path d="M-165 -18
+             C-115 42 -55 72 0 74
+             C55 72 115 42 165 -18"
+          fill="none"
+          stroke="#b4143e"
+          stroke-width="10"
+          stroke-linecap="round">
+      <animate attributeName="stroke-width"
+               values="8;11;9;8"
+               dur="2.8s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity"
+               values="0.72;1;0.8;0.72"
+               dur="2.8s"
+               repeatCount="indefinite"/>
+    </path>
+
+    <path d="M-150 -8
+             C-106 36 -50 59 0 61
+             C50 59 106 36 150 -8"
+          fill="none"
+          stroke="#ff2e67"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          opacity="0.75"/>
+
+    <!-- teeth hints -->
+    <g stroke="#7c0b2c" stroke-width="3" opacity="0.65">
+      <path d="M-104 31 L-91 50"/>
+      <path d="M-72 47 L-63 61"/>
+      <path d="M-36 58 L-31 69"/>
+      <path d="M0 61 L0 73"/>
+      <path d="M36 58 L31 69"/>
+      <path d="M72 47 L63 61"/>
+      <path d="M104 31 L91 50"/>
+    </g>
+
+    <!-- eye sparks -->
+    <g fill="#d91b4f" filter="url(#hardGlow)">
+      <circle cx="-128" cy="-40" r="5">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="128" cy="-40" r="5">
+        <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <!-- Main text base -->
+  <g font-family="monospace"
+     font-size="76"
+     font-weight="700"
+     letter-spacing="10"
+     text-anchor="middle">
+
+    <text x="600" y="324"
+          fill="#f4dbe3"
+          opacity="0.96"
+          filter="url(#hardGlow)">KEEP SMILING</text>
+
+    <!-- red glitch layer -->
+    <text x="600" y="324"
+          fill="#ff174f"
+          opacity="0.68"
+          clip-path="url(#sliceTop)">
+      <animate attributeName="x"
+               values="600;612;592;600;600"
+               keyTimes="0;0.12;0.18;0.24;1"
+               dur="2.7s"
+               repeatCount="indefinite"/>
+      KEEP SMILING
+    </text>
+
+    <!-- dark glitch layer -->
+    <text x="600" y="324"
+          fill="#7a0a29"
+          opacity="0.95"
+          clip-path="url(#sliceMid)">
+      <animate attributeName="x"
+               values="600;582;615;600;600"
+               keyTimes="0;0.08;0.16;0.22;1"
+               dur="1.9s"
+               repeatCount="indefinite"/>
+      KEEP SMILING
+    </text>
+
+    <!-- bright glitch layer -->
+    <text x="600" y="324"
+          fill="#ff6a91"
+          opacity="0.52"
+          clip-path="url(#sliceBot)">
+      <animate attributeName="x"
+               values="600;620;589;600;600"
+               keyTimes="0;0.11;0.17;0.25;1"
+               dur="3.4s"
+               repeatCount="indefinite"/>
+      KEEP SMILING
+    </text>
+  </g>
+
+  <!-- minimal signature -->
+  <text x="600" y="372"
+        font-family="monospace"
+        font-size="18"
+        font-weight="700"
+        letter-spacing="6"
+        text-anchor="middle"
+        fill="#8d1235"
+        opacity="0.9">CHEASZ</text>
+
+  <!-- glitch bars -->
+  <g fill="#a70f38" opacity="0.46">
+    <rect x="130" y="188" width="180" height="4">
+      <animate attributeName="x" values="130;280;110;130" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="180;40;220;180" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="820" y="210" width="240" height="3">
+      <animate attributeName="x" values="820;760;900;820" dur="2.9s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="240;90;170;240" dur="2.9s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="420" y="350" width="360" height="2">
+      <animate attributeName="opacity" values="0;0.7;0;0.4;0" dur="1.3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <rect width="1200" height="420" rx="26" fill="url(#scanlines)" pointer-events="none"/>
+  <rect width="1200" height="420" rx="26" fill="transparent" filter="url(#noise)" pointer-events="none"/>
+
+  <!-- occasional full flicker -->
+  <rect width="1200" height="420" rx="26" fill="#6d0b25" opacity="0">
+    <animate attributeName="opacity"
+             values="0;0;0.045;0;0;0.02;0"
+             keyTimes="0;0.58;0.60;0.62;0.88;0.90;1"
+             dur="4.8s"
+             repeatCount="indefinite"/>
+  </rect>
+</svg>
